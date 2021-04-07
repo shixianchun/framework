@@ -1,0 +1,71 @@
+server:
+  port: 8002
+
+spring:
+  profiles:
+    #local,sit,uat,prod
+    active: local
+  application:
+    name: jchj-mysqldata
+  #spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: f4fde7b5-29f4-4f59-a8c9-b363c6034f47
+#      config:
+#        server-addr: 127.0.0.1:8848
+#        namespace: f4fde7b5-29f4-4f59-a8c9-b363c6034f47
+
+#  cloud:
+#    inetutils:
+#      preferred-networks: 192.168.2.   #多网卡选择
+
+
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  global-config:
+    db-config:
+      #主键类型  0:数据库ID自增, 1:用户输入ID,2:全局唯一ID (数字类型唯一ID), 3:全局唯一ID, 4:全局唯一（UUID）, 5:全局唯一（idWorker的字符串表示）
+      id-type: 3
+      #机器 ID 部分(影响雪花ID),不同机器需不同
+      workerId: 1
+      #数据标识 ID 部分(影响雪花ID)(workerId 和 datacenterId 一起配置才能重新初始化 Sequence)
+      datacenterId: 18
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      field-strategy: 2
+      table-underline: true
+      db-type: mysql
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+logging:
+  config: classpath:log4j2.xml
+  
+# 以下是 actuator监控信息的配置 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream,info,health 
+
+info:
+  app.name: jchj
+  company.name: com.jchj
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+#  leaf.snowflake:
+#    zk.address: localhost:2181
+#    port: 1021
+
+# swagger密码
+#security:
+#  basic:
+#    enabled: true
+#    path: /swagger-ui.html
+#  user:
+#    name: admin
+#    password: admin
+

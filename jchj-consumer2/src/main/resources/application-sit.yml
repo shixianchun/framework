@@ -1,0 +1,14 @@
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://10.200.202.66:9101/eureka
+#      defaultZone: http://10.200.202.66:9101/eureka
+#      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+info:
+  # 文件存储目录
+  file.dir: /data/files
+  rlt-file.url: https://runchain.crresolink.com.cn/rlt-file/
+  proxy_url: 10.0.192.15
+  proxy_port: 80

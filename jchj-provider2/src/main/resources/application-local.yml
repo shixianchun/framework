@@ -1,0 +1,45 @@
+app:
+  id: jchj
+#apollo:
+#  meta: http://sasuke:9000
+#  bootstrap:
+#    enabled: true
+#    eagerLoad:
+#      enabled: true
+#    namespaces: database.yml
+#  cluster: dev
+#env: DEV
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: ENC(ADM3ib+psARoGTbU2McRh14KCFld6Jg/IVLrBGaE2NBqqq8Jp5K7K+N0P4B45sdJ5NNpattdvRjMwkWsjT7ve8DrxTtQTTCKfvIwsoqBAMEFTWXMi2pRkKdhIwiVwFbs4QvBi58M58fTb3GGtA+jdNvztcG55KYOsTuCZJw12z8=)
+    username: ENC(0jgsUFhtXHvCl7VN44yOV1jAa7de8Mw0R4Bol95RO7BZv/dIvvwcL2P9mxPdFuCV)
+    password: ENC(DlC0lB7yZjTJfRZb7xaZ3q0LOBzwmxlLaJele2cIxpGKYIQCFgJuuaggX4z3aD4N)
+    # using Hikari
+    hikari:
+      autoCommit : true
+      connectionTestQuery : "select 'x'"
+      connectionTimeout : 30000
+      idleTimeout : 600000
+      initializationFailTimeout : 1
+      maxLifetime : 1800000
+      maximumPoolSize : 10
+      minimumIdle : 1
+      validationTimeout : 5000
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+
+
+info:
+  rlt-file.url: http://localhost:9105/rlt-file/

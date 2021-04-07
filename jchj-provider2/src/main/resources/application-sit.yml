@@ -1,0 +1,50 @@
+app:
+  id: rlt
+#apollo:
+#  meta: http://10.200.202.66:9002
+#  bootstrap:
+#    enabled: true
+#    eagerLoad:
+#      enabled: true
+#    namespaces: database.yml
+#  cluster: dev
+#env: DEV
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: ENC(oZKmR5rm2iVbdY5If3Y3yApsYyykXk2+HLJjTWZjJIAoXcpJzKGKV69hg5a8DI3iebphT2Uxg/2FiroNr4MbEppMVQjuj32kg61v2NxvCYrEVXSFUFK22+kxzuXzl0kw8kgH4Zca2P4RprsUmQE15Fdn6wA2J2F9PIhoDHP4dUo=)
+    username: ENC(aKkxlqUdL0mvGTQ048oObJBVcI51Ytw5LCz+ZKtT+DBKrR5GHhwgpPdC5mXBwU4F)
+    password: ENC(kHpmaqu+b8anHEnCwJLKiaYpW5ANaN3LFFnKYckiD7wOPM27dLYZTL/hKiUoVDm2)
+    # using Hikari
+    hikari:
+      autoCommit : true
+      connectionTestQuery : "select 'x'"
+      connectionTimeout : 30000
+      idleTimeout : 600000
+      initializationFailTimeout : 1
+      maxLifetime : 1800000
+      maximumPoolSize : 10
+      minimumIdle : 1
+      validationTimeout : 5000
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+        useLocalSessionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://10.200.202.66:9101/eureka
+  #      defaultZone: http://10.200.202.66:9101/eureka
+  #      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+info:
+  rlt-file.url: https://runchain.crresolink.com.cn/rlt-file/
