@@ -1,0 +1,66 @@
+app:
+  id: jchj-restful-consumer
+server:
+  port: 9104
+
+spring:
+  profiles:
+    #local,sit,uat,prod
+#    active: dev
+  application:
+    name: restful-consumer
+  #spring.cloud.nacos.discovery.server-addr=127.0.0.1:8848
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.110.140:8848
+        namespace: 078d2421-03ab-45f8-981d-5ed3bbaeb329
+        file-extension: yaml
+      discovery:
+        server-addr: 192.168.110.140:8848
+        namespace: 078d2421-03ab-45f8-981d-5ed3bbaeb329
+
+  ## MULTIPART (MultipartProperties)
+  # 开启 multipart 上传功能
+  servlet:
+    multipart:
+      enabled: true
+      # 最大文件大小
+      max-file-size: 20MB
+      # 最大请求大小
+      max-request-size: 25MB
+
+
+logging:
+  config: classpath:log4j2.xml
+
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
+
+
+

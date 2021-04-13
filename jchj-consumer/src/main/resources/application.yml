@@ -1,54 +1,54 @@
-server:
-  port: 9104
-  #项目名称
-  #servlet.context-path: /rest
-
-spring:
-  profiles:
-    #local,sit,uat,prod
-    active: local
-  main:
-    allow-bean-definition-overriding : true
-
-  ## MULTIPART (MultipartProperties)
-  # 开启 multipart 上传功能
-  servlet:
-    multipart:
-      enabled: true
-      # 最大文件大小
-      max-file-size: 20MB
-      # 最大请求大小
-      max-request-size: 25MB
-
-
-logging:
-  config: classpath:log4j2.xml
-
-feign:
-  hystrix:
-    enabled: true
-  compression:
-    request:
-      enabled: true
-      mime-types: text/xml,application/xml,application/json
-      min-request-size: 2048
-    response:
-      enabled: true
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
-
-ribbon:
-  ReadTimeout: 5000
-  ConnectTimeout: 5000
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: hystrix.stream
-        
+#server:
+#  port: 9104
+#  #项目名称
+#  #servlet.context-path: /rest
+#
+#spring:
+#  profiles:
+#    #local,sit,uat,prod
+#    active: local
+#  main:
+#    allow-bean-definition-overriding : true
+#
+#  ## MULTIPART (MultipartProperties)
+#  # 开启 multipart 上传功能
+#  servlet:
+#    multipart:
+#      enabled: true
+#      # 最大文件大小
+#      max-file-size: 20MB
+#      # 最大请求大小
+#      max-request-size: 25MB
+#
+#
+#logging:
+#  config: classpath:log4j2.xml
+#
+#feign:
+#  hystrix:
+#    enabled: true
+#  compression:
+#    request:
+#      enabled: true
+#      mime-types: text/xml,application/xml,application/json
+#      min-request-size: 2048
+#    response:
+#      enabled: true
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000
+#
+#ribbon:
+#  ReadTimeout: 5000
+#  ConnectTimeout: 5000
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: hystrix.stream
+#

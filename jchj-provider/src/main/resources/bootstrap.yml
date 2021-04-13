@@ -1,5 +1,5 @@
 app:
-  id: jchj
+  id: jchj-mysqldata
 server:
   port: 8001
 
@@ -13,13 +13,13 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 127.0.0.1:8848
-        namespace: f4fde7b5-29f4-4f59-a8c9-b363c6034f47
+        server-addr: ${server-addr}
+        namespace: ${namespace}
         file-extension: yaml
         prefix: jchj-mysqldata
       discovery:
-        server-addr: 127.0.0.1:8848
-        namespace: f4fde7b5-29f4-4f59-a8c9-b363c6034f47
+        server-addr: ${server-addr}
+        namespace: ${namespace}
 
 
 
